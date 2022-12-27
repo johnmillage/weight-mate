@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Navbar, Alignment, Card, Dialog } from "@blueprintjs/core";
+import { DatePicker, TimePrecision } from "@blueprintjs/datetime";
 import logo from './logo.svg';
 import './App.css';
 
@@ -85,6 +86,7 @@ class App extends React.Component<AppProps, AppState> {
       <Card id="workout_card" style={{display: this.state.currentPane === "Workout" ? "inline-block" : "none"}}>
         <Button text="Start Workout" intent="primary" onClick={() => this.showStartWorkout()} />
         <Dialog icon="walk" title="Start Workout" isOpen={this.state.showStartWorkoutDialog} onClose={() => this.hideStartWorkout()}>
+          <DatePicker timePrecision={TimePrecision.MINUTE} timePickerProps={{showArrowButtons: true, useAmPm: true}} />
         </Dialog>
         <Button text="End Workout"/>
       </Card>
